@@ -1,6 +1,6 @@
 import { BotDeclaration, PreventIframe, MessageExtensionDeclaration } from "express-msteams-host";
 import * as debug from "debug";
-import { TeamsActivityHandler, StatePropertyAccessor, ActivityTypes, CardFactory, ConversationState, MemoryStorage, UserState, TurnContext } from "botbuilder";
+import { TeamsActivityHandler, StatePropertyAccessor, ActivityTypes, CardFactory, ConversationState, MemoryStorage, UserState, TurnContext,MessageReactionTypes} from "botbuilder";
 import { DialogBot } from "./dialogBot";
 import { MainDialog } from "./dialogs/mainDialog";
 import WelcomeCard from "./cards/welcomeCard";
