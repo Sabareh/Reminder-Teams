@@ -1,9 +1,9 @@
 {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
     "manifestVersion": "1.15",
-    "id": "{{APPLICATION_ID}}",
-    "version": "{{VERSION}}",
-    "packageName": "{{PACKAGE_NAME}}",
+    "id": "5023d8b1-46fe-4d1d-8773-ddf2bd082d2b",
+    "version": "1.0.0",
+    "packageName": "com.microsoft.teams.extension.reminder",
     "developer": {
         "name": "Esther-Victor",
         "websiteUrl": "https://{{PUBLIC_HOSTNAME}}",
@@ -36,7 +36,7 @@
     ],
     "bots": [
         {
-            "botId": "{{MICROSOFT_APP_ID}}",
+            "botId": "5023d8b1-46fe-4d1d-8773-ddf2bd082d2b",
             "needsChannelSelector": true,
             "isNotificationOnly": false,
             "scopes": [
@@ -71,7 +71,7 @@
     "connectors": [],
     "composeExtensions": [
         {
-            "botId": "{{MICROSOFT_APP_ID}}",
+            "botId": "5023d8b1-46fe-4d1d-8773-ddf2bd082d2b",
             "canUpdateConfiguration": true,
             "commands": [
                 {
@@ -97,5 +97,11 @@
     "validDomains": [
         "{{PUBLIC_HOSTNAME}}"
     ],
-    "showLoadingIndicator": true
-};
+    "showLoadingIndicator": true,
+    "isFullScreen": true,
+    "webApplicationInfo": {
+        "id": "5023d8b1-46fe-4d1d-8773-ddf2bd082d2b",
+        "resource": "api://{{PUBLIC_HOSTNAME}}/5023d8b1-46fe-4d1d-8773-ddf2bd082d2b"
+    }   
+}
+

@@ -22,6 +22,9 @@ const MAIN_DIALOG_ID = "mainDialog";
 const MAIN_WATERFALL_DIALOG_ID = "mainWaterfallDialog";
 
 export class MainDialog extends ComponentDialog {
+    createContext(context: TurnContext) {
+        throw new Error("Method not implemented.");
+    }
     public onboarding: boolean;
     constructor() {
         super(MAIN_DIALOG_ID);

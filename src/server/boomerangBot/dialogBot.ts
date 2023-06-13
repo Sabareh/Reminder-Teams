@@ -2,45 +2,32 @@ import {
     ConversationState,
     UserState,
     TeamsActivityHandler,
-    TurnContext,
-    StatePropertyAccessor
+    TurnContext
 } from "botbuilder";
 import { MainDialog } from "./dialogs/mainDialog";
-import { DialogSet } from "botbuilder-dialogs";
 
 export class DialogBot extends TeamsActivityHandler {
-    private conversationState: ConversationState;
-    private userState: UserState;
-    private dialog: MainDialog;
-    private dialogState: StatePropertyAccessor<any>;
+    public dialogState: any;
 
-    constructor(conversationState: ConversationState, userState: UserState, dialog: MainDialog) {
+    constructor(public conversationState: ConversationState, public userState: UserState, public dialog: MainDialog) {
         super();
         this.conversationState = conversationState;
         this.userState = userState;
         this.dialog = dialog;
         this.dialogState = this.conversationState.createProperty("DialogState");
 
-        this.onMessage(async (context: TurnContext, next: () => Promise<void>) => {
-            const dialogContext = await this.dialog.createContext(context);
-
-            // Continue the dialog if it's not done
-            if (!dialogContext.context.responded) {
-                await dialogContext.continueDialog();
-            }
-
-            // Start the dialog if it hasn't been started yet
-            if (!context.responded) {
-                await dialogContext.beginDialog(this.dialog.id);
-            }
-
+        this.onMessage(async (context, next) => {
+            // Run the MainDialog with the new message Activity.
+            await this.dialog.run(context, this.dialogState);
             await next();
         });
     }
 
-    public async run(context: TurnContext): Promise<void> {
+    public async run(context: TurnContext) {
         await super.run(context);
+        // Save any state changes. The load happened during the execution of the Dialog.
         await this.conversationState.saveChanges(context, false);
         await this.userState.saveChanges(context, false);
     }
 }
+
