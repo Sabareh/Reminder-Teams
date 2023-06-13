@@ -1,101 +1,101 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.15",
-  "id": "{{APPLICATION_ID}}",
-  "version": "{{VERSION}}",
-  "packageName": "{{PACKAGE_NAME}}",
-  "developer": {
-    "name": "Esther-Victor",
-    "websiteUrl": "https://{{PUBLIC_HOSTNAME}}",
-    "privacyUrl": "https://{{PUBLIC_HOSTNAME}}/privacy.html",
-    "termsOfUseUrl": "https://{{PUBLIC_HOSTNAME}}/tou.html"
-  },
-  "name": {
-    "short": "Reminder",
-    "full": "Reminder"
-  },
-  "description": {
-    "short": "TODO: add short description here",
-    "full": "TODO: add full description here"
-  },
-  "icons": {
-    "outline": "icon-outline.png",
-    "color": "icon-color.png"
-  },
-  "accentColor": "#D85028",
-  "configurableTabs": [],
-  "staticTabs": [
-    {
-      "entityId": "59dbc1a0-0889-11ee-944a-d935fcc0ab02",
-      "name": "About Boomerang",
-      "contentUrl": "https://{{PUBLIC_HOSTNAME}}/boomerangBot/aboutBoomerang.html",
-      "scopes": [
-        "personal"
-      ]
-    }
-  ],
-  "bots": [
-    {
-      "botId": "{{MICROSOFT_APP_ID}}",
-      "needsChannelSelector": true,
-      "isNotificationOnly": false,
-      "scopes": [
-        "team",
-        "personal",
-        "groupchat"
-      ],
-      "commandLists": [
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.15",
+    "id": "{{APPLICATION_ID}}",
+    "version": "{{VERSION}}",
+    "packageName": "{{PACKAGE_NAME}}",
+    "developer": {
+        "name": "Esther-Victor",
+        "websiteUrl": "https://{{PUBLIC_HOSTNAME}}",
+        "privacyUrl": "https://{{PUBLIC_HOSTNAME}}/privacy.html",
+        "termsOfUseUrl": "https://{{PUBLIC_HOSTNAME}}/tou.html"
+    },
+    "name": {
+        "short": "Reminder",
+        "full": "Reminder"
+    },
+    "description": {
+        "short": "TODO: add short description here",
+        "full": "TODO: add full description here"
+    },
+    "icons": {
+        "outline": "icon-outline.png",
+        "color": "icon-color.png"
+    },
+    "accentColor": "#D85028",
+    "configurableTabs": [],
+    "staticTabs": [
         {
-          "scopes": [
-            "team",
-            "personal"
-          ],
-          "commands": [
-            {
-              "title": "Help",
-              "description": "Shows help information"
-            },
-            {
-              "title": "Who am I?",
-              "description": "Shows information about your Teams user"
-            },
-            {
-              "title": "Mention me",
-              "description": "Let the bot @mention you"
-            }
-          ]
+            "entityId": "59dbc1a0-0889-11ee-944a-d935fcc0ab02",
+            "name": "About Boomerang",
+            "contentUrl": "https://{{PUBLIC_HOSTNAME}}/boomerangBot/aboutBoomerang.html",
+            "scopes": [
+                "personal"
+            ]
         }
-      ]
-    }
-  ],
-  "connectors": [],
-  "composeExtensions": [
-    {
-      "botId": "{{MICROSOFT_APP_ID}}",
-      "canUpdateConfiguration": true,
-      "commands": [
+    ],
+    "bots": [
         {
-          "id": "reminderMessageExtension",
-          "title": "Reminder Message Extension",
-          "description": "Description of Reminder Message Extension",
-          "initialRun": true,
-          "type": "action",
-          "context": [
-            "compose",
-            "commandBox",
-            "message"
-          ],
-          "fetchTask": true
+            "botId": "{{MICROSOFT_APP_ID}}",
+            "needsChannelSelector": true,
+            "isNotificationOnly": false,
+            "scopes": [
+                "team",
+                "personal",
+                "groupchat"
+            ],
+            "commandLists": [
+                {
+                    "scopes": [
+                        "team",
+                        "personal"
+                    ],
+                    "commands": [
+                        {
+                            "title": "Help",
+                            "description": "Shows help information"
+                        },
+                        {
+                            "title": "Who am I?",
+                            "description": "Shows information about your Teams user"
+                        },
+                        {
+                            "title": "Mention me",
+                            "description": "Let the bot @mention you"
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "permissions": [
-    "identity",
-    "messageTeamMembers"
-  ],
-  "validDomains": [
-    "{{PUBLIC_HOSTNAME}}"
-  ],
-  "showLoadingIndicator": true
-}
+    ],
+    "connectors": [],
+    "composeExtensions": [
+        {
+            "botId": "{{MICROSOFT_APP_ID}}",
+            "canUpdateConfiguration": true,
+            "commands": [
+                {
+                    "id": "reminderMessageExtension",
+                    "title": "Reminder Message Extension",
+                    "description": "Description of Reminder Message Extension",
+                    "initialRun": true,
+                    "type": "action",
+                    "context": [
+                        "compose",
+                        "commandBox",
+                        "message"
+                    ],
+                    "fetchTask": true
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "{{PUBLIC_HOSTNAME}}"
+    ],
+    "showLoadingIndicator": true
+};
